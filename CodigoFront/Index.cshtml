@@ -1,0 +1,66 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billetera Virtual</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-container">
+        <h2 class="TEXTO">¡Bienvenido!</h2>
+        <div id="alert-message" class="alert" style="display: none;"></div>
+        <input type="email" id="email" placeholder="Correo electrónico" required>
+        <input type="text" id="dni" placeholder="DNI (8 dígitos)" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <input type="checkbox" id="showPassword"> Mostrar contraseña
+        <button id="loginBtn">Iniciar sesión</button>
+    </div>
+
+    <div id="wallet-container" style="display:none;">
+        <h2 id="welcome-message"></h2>
+        <h3>Saldo actual: $<span id="balance">0</span></h3>
+        <button id="addMoneyBtn">Agregar Dinero</button>
+        <button id="consultBtn">Consultar Saldo</button>
+        <button id="modifyBtn">Modificar Saldo</button>
+        <button id="deleteMoneyBtn">Eliminar Dinero</button>
+        <button id="historyBtn">¿Desea consultar el historial de operaciones?</button>
+        <button id="clientHistoryBtn">Ver historial de clientes</button>
+        <button id="backBtn">Volver al inicio</button>
+    </div>
+
+    <!-- Modal del historial de operaciones -->
+    <div id="historyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Historial de operaciones:</h3>
+            <ul id="history"></ul>
+        </div>
+    </div>
+
+    <!-- Modal del historial de clientes -->
+    <div id="clientHistoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Historial de clientes:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Correo Electrónico</th>
+                        <th>DNI</th>
+                    </tr>
+                </thead>
+                <tbody id="clientHistory"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
